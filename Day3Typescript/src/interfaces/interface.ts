@@ -27,15 +27,63 @@
 // } 
 
 
-class Course{
-   constructor(name, id, duration){
+interface IEmployee {
+empCode: number;
+empName: string;
+setEmpName(name: string): void;
+getEmpName: () => string;
+}
 
-   }
+interface IDoctor extends IEmployee{
+    speciality: string;
+    address: string;
+}
+let GynoDoc: IDoctor = {
+    empCode: 123,
+    empName: "sar",
+    speciality:  "gyno",
+    address: "kathmandu",
+    setEmpName(name: string): void{
+        this.empName = name; 
+    },
+    getEmpName(): string{
+        return this.empName
+    }
 
 }
-let MSD = new Course();
-function CourseMSd(name, id){
-    this.name= name;
-    this.id= id;
-}
-let comPro = new CourseMSd("", 12);
+enum Color { Red, Green, Blue };
+let c: Color = Color.Red;
+enum Color2 { Red = 0, Green, Blue };
+enum Color3 { Red = 3, Green, Blue };
+console.log(Color.Green);
+
+// let emp: IEmployee = {
+// empCode: 1001,
+// empName: 'John',
+// setEmpName: function (name: string): void {
+// this.empName = name;
+// },
+// getEmpName: function () {
+// return this.empName;
+// }
+// }
+// emp.setEmpName('Edward');
+// console.log(emp.getEmpName());
+let holiday = (function(){
+    let budget = 3000;
+    let expens; 
+    return{
+        expenses: function(food: number, uber: number, tickets: number){
+          budget = budget - (food + uber + tickets);
+        },
+        getBudget: function(){
+            if(budget === 0)
+            return "Finish your holiday.";
+            else 
+            return budget
+        }
+
+    }
+})();
+holiday.expenses(400, 200, 200);
+holiday.getBudget();

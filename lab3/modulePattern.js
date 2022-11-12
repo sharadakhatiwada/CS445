@@ -4,9 +4,9 @@ let shoppingCart = (function(){
 
    return { 
         upsertItem: function(item){
-          let itemMatched = basket.find(basketItem=> item.id === basketItem.id);
-          if(itemMatched){
-             itemMatched = item;
+          let indexOfItem = basket.findIndex(basketItem => item.id === basketItem.id);
+          if(indexOfItem > -1){
+            basket.splice(indexOfItem, 1, item)
           }
           else{
             basket.push(item);

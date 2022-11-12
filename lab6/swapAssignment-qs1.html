@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="image1" src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png" style="height:300px; width:300px"/>  
+    <img  id="image2" src="https://www.vets4pets.com/siteassets/species/cat/kitten/istock-1170736928-1.jpg?width=1040" style="height:300px; width:300px"/>
+    <button type="submit" id="swapButton">Swap</button>
+    <script>
+        let swapButton = document.getElementById("swapButton");
+        let cat1 = document.getElementById("image1");
+        let cat2 = document.getElementById("image2");
+        swapButton.onclick = function swapping() {
+            let storage = cat1.src;
+            cat1.src = cat2.src;
+            cat2.src = storage;
+        }
+    </script>
+</body>
+</html>

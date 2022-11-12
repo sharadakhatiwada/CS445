@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="number1">
+    <input type="number" id="number2">
+    <input type="text" id="operator">
+    <span>=</span>
+    <input  id="number4" readonly type="value">
+    <input type="button" value="Click Me" id="calButton">
+    <script>
+        let clickButton = document.getElementById("calButton");
+        clickButton.onclick = function calculate(){
+            let input1 = Number(document.getElementById("number1").value);
+            let input2 = Number(document.getElementById("number2").value);
+            let operator = document.getElementById("operator");
+            let resultDisplay = document.getElementById("number4");
+            let result = 0;
+            if(operator.value === "+"){
+                result = input1 + input2; 
+            }
+            else if(operator.value === "-"){
+                result = input1 - input2;
+            }
+            else if(operator.value === "*"){
+                result = input1 * input2 ;
+            }
+            else if(operator.value === "/"){
+                result = input1 / input2;
+            }
+            resultDisplay.value = result;
+        }
+    </script>  
+</body>
+</html>

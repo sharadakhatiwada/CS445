@@ -4,4 +4,4 @@ function fibonacci(n, memo={}){
     memo[n]= fibonacci(n-1, memo)+ fibonacci(n-2, memo);
     return memo[n];
 }
-console.log(fibonacci(7));
+console.log(fibonacci(45));
