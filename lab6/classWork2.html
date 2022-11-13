@@ -7,26 +7,37 @@
     <title>Document</title>
 </head>
 <script>
-    database.set('Iowa'['Fairfield', 'Mt. Pleasant', 'Ottumwa', 'Des Moines', 'Iowa City']);
-    database.set('California'['Los Angles', 'San Jose', 'San Diago', 'Pittsburg'])
+   
 </script>
 <body>
-    <label for="state">Choose a State:</label>
-    
-    <select id="states">
-        '<option>Hello</option>'
-        '<option></option>'
-        '<option></option>'
-        '<option></option>'
+    <label for="states">Choose a State:</label>
+    <select id="states"></select>
+    <label for="cities">Choose a City:</label>
+    <select id="cities">
     </select>
-
-    <label for="state">Choose a City:</label>
-    <select >
-        <option></option>
-        <option></option>
-        <option></option>
-        <option></option>
-    </select>
-    
+    <script>
+        const database = {
+            'Iowa': ['Fairfield', 'Mt. Pleasant', 'Ottumwa', 'Des Moines', 'Iowa City'],
+            'California': ['Los Angles', 'San Jose', 'San Diago', 'Pittsburg'],
+            'Texas': ['Dallas', 'Houston', 'Austin', 'San Antonio']
+        }
+        let state = document.getElementById("states");
+        for(let key in database){
+            let option = document.createElement("option");
+            option.innerHTML = key;
+            state.append(option);  
+        }
+        let city = document.getElementById("cities");
+        state.addEventListener('change', getCity);
+        getCity();
+        function getCity(){
+            city.innerHTML = '';
+            for(let city1 of database[state.value]){
+                let option = document.createElement("option");
+                option.innerHTML = city1; 
+                city.append(option);  
+            }  
+        }
+    </script> 
 </body>
 </html>
