@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="productTable">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        
+    </table>
+    <h1>Add a new Product</h1>
+    <form id="productSaveForm">
+        <p>Name: <input id="name" /></p>
+        <p>price: <input id="price" type="number" /></p>
+        <p>Description: <textarea id="description"></textarea></p>
+        <button id="saveBtn">Save</button>
+    </form>
+
+
+    <script>
+        let form = document.getElementById("productSaveForm");
+        console.log(form.value);
+        let name = document.getElementById("name").value;
+        console.log(name)
+        let description = document.getElementById("description").value;
+        let price = document.getElementById("price").value;
+        let saveBtn = document.getElementById("saveData");
+        saveBtn.onclick = savedata;
+
+        function savedata(){
+            let tableRow = document.getElementById("productTable");
+
+             tableRow.append(`<tr >
+                <td>${null}</td>
+                <td>${name}</td>
+                <td>${description}</td>
+                <td>${price}</td>
+                <td>
+                    <input type="button" value="edit">
+                        <input type="button" value="delete" />
+                </td>
+            </tr>`);
+
+        }
+
+
+
+    </script>
+
+    
+</body>
+</html>
